@@ -1,6 +1,7 @@
 import styles from "./Login.module.css";
 import { useState } from "react";
 import logo_escura from "../src/assets/logo_escura.png";
+import logo_clara from "../src/assets/logo_clara.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
 
@@ -21,10 +22,11 @@ export default function Login() {
               name="email"
               id="email"
               type="text"
+              placeholder="Email ou Usuário"
               required
             />
             <label className={styles.label} htmlFor="email">
-              Email or Username
+              Email ou Usuário
             </label>
           </div>
           <div className={styles.input_box}>
@@ -33,10 +35,11 @@ export default function Login() {
               name="password"
               id="password"
               type={showPassword ? "text" : "password"}
+              placeholder="Senha"
               required
             />
             <label className={styles.label} htmlFor="password">
-              Password
+              Senha
             </label>
             {showPassword ? (
               <FontAwesomeIcon
@@ -53,7 +56,7 @@ export default function Login() {
             )}
           </div>
           <div className={styles.options}>
-            <div className="checkbox">
+            <div className={styles.checkbox}>
               <input
                 className={styles.checkbox_input}
                 type="checkbox"
@@ -62,22 +65,29 @@ export default function Login() {
               />
               <label className={styles.checkbox_label} htmlFor="remember">
                 <span className={styles.checkbox_checkmark}>
-                  <FontAwesomeIcon icon={faCheck} className={styles.icon} />
+                  <FontAwesomeIcon
+                    icon={faCheck}
+                    className={styles.icon}
+                    width={16}
+                  />
                 </span>
-                Remember me
+                Lembrar de mim
               </label>
             </div>
             <a className={styles.forgot} href="#">
-              Forgot password?
+              Esqueceu a senha?
             </a>
           </div>
           <div style={{ width: "50%", marginTop: "4rem" }}>
             <button className={styles.submit} type="submit">
-              Login
+              Entrar
             </button>
             <div className={styles.line}></div>
           </div>
         </form>
+        <a href="./register" className={styles.register}>
+          Não possui conta? <span>Registre - se</span>
+        </a>
       </div>
     </div>
   );
